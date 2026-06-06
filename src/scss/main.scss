@@ -1,0 +1,147 @@
+// Abstract & Dependencies
+@import "abstract/variables";
+@import "abstract/mixins";
+
+// Importing Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap"; 
+@import "components/shop";
+
+body {
+  font-family: $font-primary;
+  background-color: $body-bg;
+  color: $primary-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// Product Card Component
+.product-card {
+  position: relative;
+  overflow: hidden;
+  transition: $transition-smooth;
+
+  .product-img {
+    position: relative;
+    overflow: hidden;
+    img {
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover {
+    .product-img img {
+      transform: scale(1.05); // Zoom effect when hovering the mouse over it.
+    }
+  }
+} 
+
+// Independent Components (separate, not nested on the card)
+// Product Tabs & Filter Style
+.nav-tabs-custom {
+  border-bottom: none;
+  justify-content: center;
+  gap: 1.5rem;
+
+  .nav-link {
+    border: none;
+    color: $text-muted;
+    font-weight: 600;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    position: relative;
+    background: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $accent-color;
+      transition: $transition-smooth;
+    }
+
+    &.active {
+      color: $primary-color;
+      background: transparent;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Side Drawer (Popup Cart)
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px; // Hidden to the right, off-screen.
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background-color: $body-bg;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  transition: $transition-smooth;
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    right: 0; // Slide the slide out when there is a .open class.
+  }
+}
+
+// Fullscreen Search Overlay
+.search-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 1060;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition-smooth;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Backdrop (the background when you open the shopping cart)
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  display: none;
+  
+  &.show {
+    display: block;
+  }
+}
+
+
+// Layouts
+.hero-slider-section {
+  padding: 0;
+  .swiper-slide {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+}

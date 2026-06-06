@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Documentation</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f8f6f3;
+            --panel: #ffffff;
+            --text: #1f242d;
+            --muted: #65707a;
+            --accent: #c28f3c;
+            --border: rgba(31, 36, 45, 0.08);
+            --radius: 28px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #fdfaf6 0%, #f8f6f3 100%);
+            color: var(--text);
+            line-height: 1.75;
+        }
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 44px 24px 80px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.78rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        header {
+            margin-bottom: 52px;
+        }
+        h1 {
+            margin: 24px 0 0;
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
+            letter-spacing: -0.05em;
+            line-height: 1.02;
+        }
+        p.lead {
+            max-width: 720px;
+            margin: 24px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+        article {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: 0 28px 90px rgba(17, 20, 30, 0.08);
+        }
+        h2 {
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            margin: 0 0 18px;
+        }
+        h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .section-text {
+            margin-top: 18px;
+            color: var(--muted);
+        }
+        .section-text strong {
+            color: var(--text);
+        }
+        .code-sample {
+            margin: 24px 0 0;
+            background: #171923;
+            color: #f8f8f2;
+            border-radius: 18px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: "Fira Code", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .code-sample code {
+            color: inherit;
+            white-space: pre-wrap;
+        }
+        .note {
+            margin: 28px 0 0;
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            background: #fff8e7;
+            color: #5d4b1f;
+            border-radius: 16px;
+        }
+        .footer {
+            margin-top: 64px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        @media (max-width: 720px) {
+            body { padding: 0; }
+            .page { padding: 28px 18px 48px; }
+            article { padding: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header>
+            <span class="brand">Template Guide</span>
+            <h1>A short guide for customizing e-commerce templates.</h1>
+            <p class="lead">A guide for buyers on how to edit text, change images, and adjust themes for a premium yet user-friendly look within a single HTML/CSS file.</p>
+        </header>
+
+        <div class="grid">
+            <article>
+                <h3>Section 1</h3>
+                <h2>How to Edit Text</h2>
+                <div class="section-text">
+                    <p>Open the HTML file of the page such as <strong>shop.html</strong> and search for the brand name <code>Template</code> or the hero heading such as:</p>
+                    <div class="code-sample">
+<code>&lt;h1 class="display-6 fw-bold mt-3"&gt;Elevate Your Style With Timeless Elegance&lt;/h1&gt;</code>
+                    </div>
+                    <p>Replace this text with your own Thai text or branding to make the page look unique and trustworthy.</p>
+                    <div class="code-sample">
+<code>&lt;h1 class="display-6 fw-bold mt-3"&gt;Elevate your style with timeless luxury.&lt;/h1&gt;</code>
+                    </div>
+                    <p>To adjust product details, edit the block containing the class. <code>product-item</code> and <code>product-card</code> For example, product name, price, or description.</p>
+                </div>
+            </article>
+
+            <article>
+                <h3>Section 2</h3>
+                <h2>How to Change Images</h2>
+                <div class="section-text">
+                    <p>The hero and product images in the template are determined by... <code>img src</code> Or an inline style. <code>hero-slide</code>.</p>
+                    <div class="code-sample">
+<code>&lt;div class="swiper-slide hero-slide" style="background-image: url('https://picsum.photos/1000/600?grayscale&amp;random=21');"&gt;</code>
+                    </div>
+                    <p>If there is a folder <code>assets/images</code> Please replace the link with your own file, for example:</p>
+                    <div class="code-sample">
+<code>style="background-image: url('assets/images/hero-image.jpg');"
+
+&lt;img src="assets/images/product-thumb-01.jpg" alt="..."&gt;</code>
+                    </div>
+                    <p>We recommend using high-quality images of 1200px or higher for the hero section and 420px for product thumbnails.</p>
+                </div>
+            </article>
+
+            <article>
+                <h3>Section 3</h3>
+                <h2>How to Adjust Themes and Colors</h2>
+                <div class="section-text">
+                    <p>Open the CSS file or the <code>&lt;style&gt;</code> section in the document, and search for the accent color values such as <code>--accent</code> or button classes</p>
+                    <div class="code-sample">
+<code>:root {
+    --accent: #c28f3c;
+}
+
+.btn-dark {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}</code>
+                    </div>
+                    <p>Change the primary color to match your brand, such as gold, midnight green, or matte black.</p>
+                    <p>To change the Google Fonts font, edit the link in...<code>&lt;head&gt;</code> And the font name in CSS.</p>
+                    <div class="code-sample">
+<code>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;
+
+body {
+    font-family: 'Inter', sans-serif;
+}</code>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <h3>Note</h3>
+                <div class="note">
+                    <p>This guide is designed to be easy to understand and use immediately: Edit text in HTML, replace images in the assets folder, and adjust theme values in the CSS section to make your template look premium right away.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="footer">
+            <p>Quick Reference Document for Template Buyers — A Clear and Elegant Customization Guide</p>
+        </div>
+    </main>
+</body>
+</html>
